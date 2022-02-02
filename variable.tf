@@ -3,14 +3,14 @@ variable "resource_group_name" {
   description = "ResourceGroup Name"
 }
 
-variable "address_space" {
+variable "address_spaces" {
   type        = string
   description = "Address Space"
 }
 
-variable "address_prefix_a" {
+variable "address_network" {
   type        = string
-  description = "Address Space A"
+  description = "Address Subnet"
 }
 
 variable "environment" {
@@ -41,6 +41,11 @@ variable "type" {
 variable "app-name" {
   type        = string
   description = "app-name"
+}
+
+variable "name" {
+  type        = string
+  description = "name"
 }
 
 
