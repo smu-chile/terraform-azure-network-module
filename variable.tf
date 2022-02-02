@@ -33,11 +33,6 @@ variable "owner" {
   description = "Owner"
 }
 
-variable "type" {
-  type        = string
-  description = "type"
-}
-
 variable "app-name" {
   type        = string
   description = "app-name"

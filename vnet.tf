@@ -9,7 +9,7 @@ resource "azurerm_virtual_network" "vnet-a" {
  
  tags = {
                 applicationname         =   var.app-name
-                deploymenttype          =   var.type
+                deploymenttype          =   "Terraform"
                 environmentinfo         =   var.environment
                 ownerinfo               =   var.owner
                 ceco                    =   var.ceco
