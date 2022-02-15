@@ -16,22 +16,16 @@ resource "azurerm_virtual_network" "vnet-a" {
         }
 }
 resource "azurerm_subnet" "subnet-a-0" {
-  name                      = "cl-a0-${var.name}-${var.environment}-${var.regions}-${random_string.id_a.result}"
+  name                      = "cl-a0-${var.name}-${var.environment}-${var.regions}"
   resource_group_name       = var.resource_group_name
   virtual_network_name      = azurerm_virtual_network.vnet-a.name
   address_prefix            = "${element(split(",", var.address_network), 0)}"
 }
 
 resource "azurerm_subnet" "subnet-a-1" {
-  name                      = "cl-a1-${var.name}-${var.environment}-${var.regions}-${random_string.id_a.result}"
+  name                      = "cl-a1-${var.name}-${var.environment}-${var.regions}"
   resource_group_name       = var.resource_group_name
   virtual_network_name      = azurerm_virtual_network.vnet-a.name
   address_prefix            = "${element(split(",", var.address_network), 1)}"
 }
 
-resource "consul_keys" "output" {
-  key {
-    path  = "${var.consul_base_path}/output/random-string"
-    value = "${random_string.id_a.result}"
-  }
-}
