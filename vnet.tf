@@ -22,10 +22,10 @@ resource "azurerm_subnet" "subnet-a-0" {
   address_prefix            = "${element(split(",", var.address_network), 0)}"
 }
 
-resource "azurerm_subnet" "subnet-a-1" {
-  name                      = "cl-a1-${var.name}-${var.environment}-${var.regions}"
-  resource_group_name       = var.resource_group_name
-  virtual_network_name      = azurerm_virtual_network.vnet-a.name
-  address_prefix            = "${element(split(",", var.address_network), 1)}"
-}
+# resource "azurerm_subnet" "subnet-a-1" {
+#   name                      = "cl-a1-${var.name}-${var.environment}-${var.regions}"
+#   resource_group_name       = var.resource_group_name
+#   virtual_network_name      = azurerm_virtual_network.vnet-a.name
+#   address_prefix            = "${element(split(",", var.address_network), 1)}"
+# }
 
