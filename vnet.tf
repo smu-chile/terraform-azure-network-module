@@ -16,16 +16,9 @@ resource "azurerm_virtual_network" "vnet-a" {
         }
 }
 resource "azurerm_subnet" "subnet-a-0" {
-  name                      = "cl-a0-${var.name}-${var.environment}-${var.regions}"
+  count                     = 2
+  name                      = (cl-a0-${var.name}-${var.environment}-${var.regions}-, count.index + 1)
   resource_group_name       = var.resource_group_name
   virtual_network_name      = azurerm_virtual_network.vnet-a.name
-  address_prefixes            = "[${element(split(",", var.address_network), 0)}]"
+  address_prefixes          = ([${element(split(",", var.address_network), count.index)}]
 }
-
-resource "azurerm_subnet" "subnet-a-1" {
-  name                      = "cl-a1-${var.name}-${var.environment}-${var.regions}"
-  resource_group_name       = var.resource_group_name
-  virtual_network_name      = azurerm_virtual_network.vnet-a.name
-  address_prefixes            = "[${element(split(",", var.address_network), 1)}]"
-}
-
