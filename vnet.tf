@@ -16,7 +16,7 @@ resource "azurerm_virtual_network" "vnet-a" {
         }
 }
 resource "azurerm_subnet" "subnet-a-0" {
-  count                     = 1
+  count                     = 2
   name                      = "cl-a0-${var.name}-${var.environment}-${var.regions}"
   resource_group_name       = var.resource_group_name
   virtual_network_name      = azurerm_virtual_network.vnet-a.name
